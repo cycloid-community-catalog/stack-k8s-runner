@@ -21,6 +21,7 @@ resources:
 
 - name: git_config-k8s
   type: git
+  icon: git
   source:
     uri: ((config_git_repository))
     branch: ((config_git_branch))
@@ -30,6 +31,7 @@ resources:
 
 - name: k8s
   type: kubernetes
+  icon: kubernetes
   source:
     kubeconfig: ((k8s_kubeconfig))
 
