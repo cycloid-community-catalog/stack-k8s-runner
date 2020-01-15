@@ -6,9 +6,10 @@ This stack is meant to be use to manage resources deployed on a Kubernetes clust
 
 ## Pipeline
 
-> **Note** The pipeline contains a manual approval between terraform plan and terraform apply.
-> That means if you trigger a terraform plan, to apply it, you have to go on terraform apply job
+> **Note** The pipeline contains a manual approval between kubernetes plan and kubernetes apply.
+> That means if you trigger a kubernetes plan, to apply it, you have to go on kubernetes apply job
 > and click on the `+` button to trigger it.
+> The kubernetes delete job is also manually triggered.
 
 <img src="docs/pipeline.png" width="800">
 
