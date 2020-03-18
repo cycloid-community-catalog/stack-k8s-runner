@@ -1,6 +1,7 @@
 # Configuration of the Cycloid stack
 name: 'k8s-runner'
 canonical: 'stack-k8s-runner'
+status: 'public'
 description: 'Used to manage resources deployed on a Kubernetes cluster with plain YAML or JSON manifests.'
 keywords:
   - 'kubernetes'
