@@ -21,21 +21,21 @@ This stack is meant to be use to manage resources deployed on a Kubernetes clust
 
 **Variations**
 
-There is 3 versions of the pipeline supported in this stack:
+There are 3 versions of the pipeline supported in this stack:
   * Classic Kubernetes: `pipeline.yml` + `variables.sample.yml` (default)
   * Amazon Elastic Kubernetes Service: `pipeline-eks.yml` + `variables-eks.sample.yml`
   * Google Kubernetes Engine: `pipeline-gke.yml` + `variables-gke.sample.yml`
 
-Currently, Cycloid UI doesn't support switching between different pipeline variations, you will have to manually copy+paste pipeline+variables from GIT inside the Cycloid UI to use them.
+Currently, Cycloid console doesn't support yet switching between different pipeline variations, you will have to manually copy+paste pipeline+variables from GIT inside the Cycloid console to use them.
 
-> **Note** Don't forget to replace the following Cycloid UI anchors with the proper values when using a pipeline variation (the Cycloid UI does it automatically for the default one):
+> **Note** Don't forget to replace the following Cycloid console anchors with the proper values when using a pipeline variation (the Cycloid console does it automatically for the default one):
 >   * `($ organization_canonical $)` with your Cycloid organization name.
 >   * `($ project $)` with your Cycloid project name.
 >   * `($ environment $)` with your target Cycloid project environment name.
 
 **Params**
 
-***classic***
+***default***
 
 |Name|Description|Type|Default|Required|
 |---|---|:---:|:---:|:---:|
