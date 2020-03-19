@@ -40,11 +40,11 @@ Currently, Cycloid console doesn't support yet switching between different pipel
 |Name|Description|Type|Default|Required|
 |---|---|:---:|:---:|:---:|
 |`config_git_branch`|Branch of the config Git repository.|`-`|`master`|`True`|
-|`config_git_private_key`|SSH key pair to fetch the config Git repository.|`-`|`((git_config.ssh_key))`|`True`|
+|`config_git_private_key`|SSH key pair to fetch the config Git repository.|`-`|`((ssh_config.ssh_key))`|`True`|
 |`config_git_repository`|Git repository URL containing the config of the stack.|`-`|`git@github.com:MyUser/config-k8s-runner.git`|`True`|
 |`customer`|Name of the Cycloid Organization, used as customer variable name.|`-`|`($ organization_canonical $)`|`True`|
 |`env`|Name of the project's environment.|`-`|`($ environment $)`|`True`|
-|`k8s_kubeconfig`|Kubernetes config used to connect to the cluster.|`-`|`((raw_kubeconfig))`|`True`|
+|`k8s_kubeconfig`|Kubernetes config used to connect to the cluster.|`-`|`((custom_kubeconfig))`|`True`|
 |`k8s_path`|Path to the manifest(s) to apply in the config git repository, can be either a folder or a single file.|`-`|`($ project $)/k8s/($ environment $)`|`True`|
 |`k8s_version`|Kubernetes version for the concourse resource used to apply your manifests.|`-`|`'1.15'`|`True`|
 |`k8s_wait_ready_selector`|Used to tell the concourse kubernetes resource to wait for a certain label selector to be ready.|`-`|`''`|`True`|
@@ -57,11 +57,11 @@ Currently, Cycloid console doesn't support yet switching between different pipel
 |`aws_access_key`|Amazon AWS access key for Terraform. See value format [here](https://docs.cycloid.io/advanced-guide/integrate-and-use-cycloid-credentials-manager.html#vault-in-the-pipeline)|`-`|`((aws.access_key))`|`True`|
 |`aws_secret_key`|Amazon AWS secret key for Terraform. See value format [here](https://docs.cycloid.io/advanced-guide/integrate-and-use-cycloid-credentials-manager.html#vault-in-the-pipeline)|`-`|`((aws.secret_key))`|`True`|
 |`config_git_branch`|Branch of the config Git repository.|`-`|`master`|`True`|
-|`config_git_private_key`|SSH key pair to fetch the config Git repository.|`-`|`((git_config.ssh_key))`|`True`|
+|`config_git_private_key`|SSH key pair to fetch the config Git repository.|`-`|`((ssh_config.ssh_key))`|`True`|
 |`config_git_repository`|Git repository URL containing the config of the stack.|`-`|`git@github.com:MyUser/config-k8s-runner.git`|`True`|
 |`customer`|Name of the Cycloid Organization, used as customer variable name.|`-`|`($ organization_canonical $)`|`True`|
 |`env`|Name of the project's environment.|`-`|`($ environment $)`|`True`|
-|`k8s_kubeconfig`|Kubernetes config used to connect to the cluster.|`-`|`((raw_kubeconfig))`|`True`|
+|`k8s_kubeconfig`|Kubernetes config used to connect to the cluster.|`-`|`((custom_kubeconfig))`|`True`|
 |`k8s_path`|Path to the manifest(s) to apply in the config git repository, can be either a folder or a single file.|`-`|`($ project $)/k8s/($ environment $)`|`True`|
 |`k8s_version`|Kubernetes version for the concourse resource used to apply your manifests.|`-`|`'1.15'`|`True`|
 |`k8s_wait_ready_selector`|Used to tell the concourse kubernetes resource to wait for a certain label selector to be ready.|`-`|`''`|`True`|
@@ -72,12 +72,12 @@ Currently, Cycloid console doesn't support yet switching between different pipel
 |Name|Description|Type|Default|Required|
 |---|---|:---:|:---:|:---:|
 |`config_git_branch`|Branch of the config Git repository.|`-`|`master`|`True`|
-|`config_git_private_key`|SSH key pair to fetch the config Git repository.|`-`|`((git_config.ssh_key))`|`True`|
+|`config_git_private_key`|SSH key pair to fetch the config Git repository.|`-`|`((ssh_config.ssh_key))`|`True`|
 |`config_git_repository`|Git repository URL containing the config of the stack.|`-`|`git@github.com:MyUser/config-k8s-runner.git`|`True`|
 |`customer`|Name of the Cycloid Organization, used as customer variable name.|`-`|`($ organization_canonical $)`|`True`|
 |`env`|Name of the project's environment.|`-`|`($ environment $)`|`True`|
-|`gcp_credentials_json`|Google Cloud Platform credentials JSON for Terraform. See value format [here](https://docs.cycloid.io/advanced-guide/integrate-and-use-cycloid-credentials-manager.html#vault-in-the-pipeline)|`-`|`((gcp_credentials.json))`|`True`|
-|`k8s_kubeconfig`|Kubernetes config used to connect to the cluster.|`-`|`((raw_kubeconfig))`|`True`|
+|`gcp_credentials_json`|Google Cloud Platform credentials JSON for Terraform. See value format [here](https://docs.cycloid.io/advanced-guide/integrate-and-use-cycloid-credentials-manager.html#vault-in-the-pipeline)|`-`|`((gcp.json_key))`|`True`|
+|`k8s_kubeconfig`|Kubernetes config used to connect to the cluster.|`-`|`((custom_kubeconfig))`|`True`|
 |`k8s_path`|Path to the manifest(s) to apply in the config git repository, can be either a folder or a single file.|`-`|`($ project $)/k8s/($ environment $)`|`True`|
 |`k8s_version`|Kubernetes version for the concourse resource used to apply your manifests.|`-`|`'1.15'`|`True`|
 |`k8s_wait_ready_selector`|Used to tell the concourse kubernetes resource to wait for a certain label selector to be ready.|`-`|`''`|`True`|
