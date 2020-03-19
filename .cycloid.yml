@@ -1,21 +1,24 @@
+---
 # Configuration of the Cycloid stack
 name: 'k8s-runner'
 canonical: 'stack-k8s-runner'
 status: 'public'
-description: 'Used to manage resources deployed on a Kubernetes cluster with plain YAML or JSON manifests.'
+description: |
+  Used to manage resources deployed on a Kubernetes cluster with plain YAML or JSON manifests.
 keywords:
   - 'kubernetes'
   - 'eks'
   - 'gke'
   - 'onprem'
-  - 'aws'
-  - 'gcloud'
+  - 'provider:aws'
+  - 'provider:gcp'
 author: 'Cycloid'
-image: 'https://raw.githubusercontent.com/cycloid-community-catalog/stack-k8s-runner/master/icon.png'
-type: 'stack'
+image: |
+  https://raw.githubusercontent.com/cycloid-community-catalog/stack-k8s-runner/master/icon.png
 technologies:
   - technology: Kubernetes
-    version: 1.15+
+    version: n/a
+
 config:
   # Configuration of the CI pipeline
   pipeline:
