@@ -1,4 +1,5 @@
 # Configuration of the Cycloid stack
+version: '2'
 name: 'k8s-runner'
 canonical: 'stack-k8s-runner'
 status: 'public'
@@ -17,9 +18,27 @@ technologies:
   - technology: Kubernetes
     version: 1.15+
 config:
-  # Configuration of the CI pipeline
-  pipeline:
+  default:
+    name: 'Classic Kubernetes'
+    description: 'For on-premises style Kubernetes clusters.'
     pipeline:
-      path: 'pipeline/pipeline.yml'
-    variables:
-      path: 'pipeline/variables.sample.yml'
+      pipeline:
+        path: 'pipeline/pipeline.yml'
+      variables:
+        path: 'pipeline/variables.sample.yml'
+  eks:
+    name: 'Amazon EKS'
+    description: 'For AWS Elastic Kubernetes Service clusters.'
+    pipeline:
+      pipeline:
+        path: 'pipeline/pipeline-eks.yml'
+      variables:
+        path: 'pipeline/variables-eks.sample.yml'
+  gke:
+    name: 'Google GKE'
+    description: 'For Google Kubernetes Engine clusters.'
+    pipeline:
+      pipeline:
+        path: 'pipeline/pipeline-gke.yml'
+      variables:
+        path: 'pipeline/variables-gke.sample.yml'
