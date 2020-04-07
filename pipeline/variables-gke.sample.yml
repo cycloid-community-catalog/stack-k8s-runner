@@ -6,9 +6,9 @@
 #+ Kubernetes version for the concourse resource used to apply your manifests.
 k8s_version: '1.15'
 
-#. k8s_kubeconfig (required): ((raw_kubeconfig))
+#. k8s_kubeconfig (required): ((custom_kubeconfig))
 #+ Kubernetes config used to connect to the cluster.
-k8s_kubeconfig: ((raw_kubeconfig))
+k8s_kubeconfig: ((custom_kubeconfig))
 
 #. k8s_path (required): ($ project $)/k8s/($ environment $)
 #+ Path to the manifest(s) to apply in the config git repository, can be either a folder or a single file.
@@ -23,9 +23,9 @@ k8s_wait_ready_selector: ''
 # GCP
 #
 
-#. gcp_credentials_json (required): ((gcp_credentials.json))
+#. gcp_credentials_json (required): ((gcp.json_key))
 #+ Google Cloud Platform credentials JSON for Terraform. See value format [here](https://docs.cycloid.io/advanced-guide/integrate-and-use-cycloid-credentials-manager.html#vault-in-the-pipeline)
-gcp_credentials_json: ((raw_gcp-($ project $).credentials_json))
+gcp_credentials_json: ((gcp.json_key))
 
 
 #
@@ -40,9 +40,9 @@ config_git_repository: git@github.com:MyUser/config-k8s-runner.git
 #+ Branch of the config Git repository.
 config_git_branch: master
 
-#. config_git_private_key (required): ((git_config.ssh_key))
+#. config_git_private_key (required): ((ssh_config.ssh_key))
 #+ SSH key pair to fetch the config Git repository.
-config_git_private_key: ((git_config.ssh_key))
+config_git_private_key: ((ssh_config.ssh_key))
 
 
 #
