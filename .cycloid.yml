@@ -5,12 +5,13 @@ name: 'k8s-runner'
 canonical: 'stack-k8s-runner'
 status: 'public'
 description: |
-  Used to manage resources deployed on a Kubernetes cluster with plain YAML or JSON manifests.
+  Used to manage resources deployed on a Kubernetes cluster with plain YAML manifests and/or terraform resources.
 keywords:
   - 'kubernetes'
   - 'eks'
   - 'gke'
   - 'onprem'
+  - 'terraform'
   - 'provider:aws'
   - 'provider:gcp'
   - 'provider:scw'
@@ -32,7 +33,7 @@ config:
         path: 'pipeline/variables.sample.yml'
         destination: '($ project $)/pipeline/variables-($ environment $).yml'
   default_terraform:
-    name: 'Classic Kubernetes'
+    name: 'Classic Kubernetes + Terraform'
     description: 'For on-premises style Kubernetes clusters + terraform code.'
     pipeline:
       pipeline:
@@ -50,7 +51,7 @@ config:
         path: 'pipeline/variables-eks.sample.yml'
         destination: '($ project $)/pipeline/variables-eks-($ environment $).yml'
   eks_terraform:
-    name: 'Amazon EKS'
+    name: 'Amazon EKS + Terraform'
     description: 'For AWS Elastic Kubernetes Service clusters + terraform code.'
     pipeline:
       pipeline:
@@ -68,7 +69,7 @@ config:
         path: 'pipeline/variables-gke.sample.yml'
         destination: '($ project $)/pipeline/variables-gke-($ environment $).yml'
   gke_terraform:
-    name: 'Google GKE'
+    name: 'Google GKE + Terraform'
     description: 'For Google Kubernetes Engine clusters + terraform code.'
     pipeline:
       pipeline:
