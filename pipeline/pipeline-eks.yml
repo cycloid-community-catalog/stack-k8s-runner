@@ -98,13 +98,13 @@ jobs:
           resource: k8s
           params:
             kubectl: |
-              diff -f git_config-k8s/((k8s_path)) --recursive
+              diff $(grep -rnw git_config-k8s/((k8s_path)) -e 'apiVersion:' --include='*.yaml' --include='*.yml' --files-with-matches | xargs -I % sh -c "echo -f %" )
 
       - put: kubectl apply dry-run
         resource: k8s
         params:
           kubectl: |
-            apply --server-dry-run -f git_config-k8s/((k8s_path)) --recursive
+            apply --dry-run=server $(grep -rnw git_config-k8s/((k8s_path)) -e 'apiVersion:' --include='*.yaml' --include='*.yml' --files-with-matches | xargs -I % sh -c "echo -f %" )
           wait_until_ready_selector: ((k8s_wait_ready_selector))
 
 - name: kubernetes-apply
@@ -122,7 +122,7 @@ jobs:
         resource: k8s
         params:
           kubectl: |
-            apply -f git_config-k8s/((k8s_path)) --recursive
+            apply $(grep -rnw git_config-k8s/((k8s_path)) -e 'apiVersion:' --include='*.yaml' --include='*.yml' --files-with-matches | xargs -I % sh -c "echo -f %" )
           wait_until_ready_selector: ((k8s_wait_ready_selector))
 
 - name: kubernetes-delete
@@ -138,5 +138,5 @@ jobs:
         resource: k8s
         params:
           kubectl: |
-            delete -f git_config-k8s/((k8s_path)) --recursive
+            delete $(grep -rnw git_config-k8s/((k8s_path)) -e 'apiVersion:' --include='*.yaml' --include='*.yml' --files-with-matches | xargs -I % sh -c "echo -f %" )
           wait_until_ready_selector: ((k8s_wait_ready_selector))
