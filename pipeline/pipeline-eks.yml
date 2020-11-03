@@ -69,31 +69,6 @@ jobs:
             - name: aws
 
       - try:
-          task: weaveworks kubediff
-          config:
-            platform: linux
-            image_resource:
-              type: docker-image
-              source:
-                repository: weaveworks/kubediff
-                tag: latest
-            run:
-              path: sh
-              args:
-                - '-ec'
-                - |
-                  export PATH=$PWD/aws/bin:$PATH
-                  echo "$KUBECONFIG" > .kubeconfig
-                  kubediff --kubeconfig=.kubeconfig git_config-k8s/((k8s_path))
-            inputs:
-              - name: git_config-k8s
-              - name: aws
-          params:
-            KUBECONFIG: ((k8s_kubeconfig))
-            AWS_ACCESS_KEY_ID: ((aws_access_key))
-            AWS_SECRET_ACCESS_KEY: ((aws_secret_key))
-
-      - try:
           put: kubectl diff
           resource: k8s
           params:

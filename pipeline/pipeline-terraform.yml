@@ -89,27 +89,6 @@ jobs:
         trigger: true
 
       - try:
-          task: weaveworks kubediff
-          config:
-            platform: linux
-            image_resource:
-              type: docker-image
-              source:
-                repository: weaveworks/kubediff
-                tag: latest
-            run:
-              path: sh
-              args:
-                - '-ec'
-                - |
-                  echo "$KUBECONFIG" > .kubeconfig
-                  kubediff --kubeconfig=.kubeconfig git_config-k8s/((k8s_path))
-            inputs:
-              - name: git_config-k8s
-          params:
-            KUBECONFIG: ((k8s_kubeconfig))
-
-      - try:
           put: kubectl diff
           resource: k8s
           params:
